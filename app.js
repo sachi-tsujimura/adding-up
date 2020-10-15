@@ -36,11 +36,14 @@ rl.on("close", () => {
   }
 
   const rankingArray = Array.from(prefectureDataMap).sort((pair1, pair2) => {
-    return pair2[1].change - pair1[1].change;
+    return pair1[1].change - pair2[1].change;
   });
 
-  const renkingStrings = rankingArray.map(([key, value]) => {
+  const renkingStrings = rankingArray.map(([key, value], i) => {
     return (
+      "No" +
+      (i + 1) +
+      ":" +
       key +
       ":" +
       value.popu10 +
